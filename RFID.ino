@@ -1,7 +1,3 @@
-#include <ESP8266WiFi.h>
-#include <PubSubClient.h>
-#include <SPI.h>
-#include "MFRC522.h"
 /* wiring the MFRC522 to ESP8266 (ESP-12)
 RST     = D3
 SDA(SS) = D8 
@@ -17,19 +13,25 @@ Ground    = GND
 Gr. LED   = D2
 Blue LED  = D0
 
+Home Assistant:
 alarm_control_panel:
   - platform: manual_mqtt
     state_topic: home/alarm
     command_topic: home/alarm/set
-    name: Hus Alarm
+    name: House Alarm
     code: !secret alarm_password (your password)
+    pending_time: 15
 
 sensor:
   - platform: mqtt
-    state_topic: "homerfid"
+    state_topic: "home/rfid"
     name: RFID
-    pending_time: 15
 */
+#include <ESP8266WiFi.h>
+#include <PubSubClient.h>
+#include <SPI.h>
+#include "MFRC522.h"
+
 #define RST_PIN  D3 // RST-PIN GPIO4 
 #define SS_PIN  D8  // SDA-PIN GPIO2 
 MFRC522 mfrc522(SS_PIN, RST_PIN); // Create MFRC522 instance
