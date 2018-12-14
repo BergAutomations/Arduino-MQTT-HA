@@ -201,12 +201,12 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
      if (payload[0] == '1'){
        digitalWrite(switchPin1, HIGH);
-       client.publish(switchconfirmTopic1, "1");
+       client.publish(switchconfirmTopic1, "1", true);
        }
 
  else if (payload[0] == '0'){
    digitalWrite(switchPin1, LOW);
-   client.publish(switchconfirmTopic1, "0");
+   client.publish(switchconfirmTopic1, "0", true);
    }
  }
  }
