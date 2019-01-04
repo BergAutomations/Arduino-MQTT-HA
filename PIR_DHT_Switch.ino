@@ -44,7 +44,7 @@ void callback(char* topic, byte* payload, unsigned int length);
 #define wifi_ssid "your_ssid"
 #define wifi_password "wifi_password"
 
-#define MQTT_SERVER "192.168.0.xxxx"  //your MQTT IP Address
+#define MQTT_SERVER "192.168.0.xxx"  //your MQTT IP Address
 #define mqtt_user "mqtt_user" 
 #define mqtt_password "mqtt_password"
 #define mqtt_port 1883
